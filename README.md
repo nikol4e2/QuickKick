@@ -1,0 +1,2 @@
+QuickKick
+QuickKick is a dynamic web application crafted to bring real-time updates, match schedules, scores, and team stats to futsal fans and players. Focused on the high-energy, fast-paced nature of futsal, QuickKick offers an intuitive and engaging platform for staying connected with the latest action on the court. Designed for mobile and desktop, QuickKick is perfect for fans, players, and anyone passionate about the sport.
