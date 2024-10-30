@@ -41,4 +41,10 @@ public class Team {
         this.draws = 0;
         this.points = 0;
     }
+
+    //TODO Implement
+    public void calculatePoints()
+    {
+
+    }
 }
