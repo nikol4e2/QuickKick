@@ -42,7 +42,7 @@ public class MatchServiceImpl implements MatchService {
     }
 
 
-    
+
     @Override
     public void finishMatch(Long id) {
         Match match=this.matchRepository.findById(id).orElseThrow(MatchNotFoundException::new);
