@@ -9,9 +9,8 @@ import java.util.List;
 public interface MatchService {
 
     List<Match> findAllMatches();
-    Match findMatchById(int id);
-    List<Match> findAllMatchesByTeam(int teamId);
+    Match findMatchById(Long id);
     List<Match> findAllMatchesByDate(Date date);
-    void finishMatch(int id);
+    void finishMatch(Long id);
     List<Match> findAllMatchesByStatus(MatchStatus status);
 }
