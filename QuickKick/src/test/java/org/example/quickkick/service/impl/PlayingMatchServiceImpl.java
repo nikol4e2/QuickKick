@@ -131,4 +131,72 @@ public class PlayingMatchServiceImpl  implements PlayingMatchService {
         PlayingMatch playingMatch=playingMatchRepository.findById(playingMatchId).orElseThrow(PlayingMatchNotFoundException::new);
         return playingMatch.getMinutesForPlayLeft();
     }
+
+
+
+    //Team controls for Playing Match
+    //Might need to make more efficient code
+
+
+    @Override
+    public void addGoalForTeam(Long playingMatchId, int teamNumber) {
+        PlayingMatch playingMatch=playingMatchRepository.findById(playingMatchId).orElseThrow(PlayingMatchNotFoundException::new);
+        Match match=playingMatch.getMatch();
+        if(teamNumber==1)
+        {
+            match.setGoalsTeam1(match.getGoalsTeam1()+1);
+        }else match.setGoalsTeam2(match.getGoalsTeam2()+1);
+
+        this.matchService.save(match);
+
+    }
+
+    @Override
+    public void subtractGoalForTeam(Long playingMatchId, int teamNumber) {
+        PlayingMatch playingMatch=this.playingMatchRepository.findById(playingMatchId).orElseThrow(PlayingMatchNotFoundException::new);
+        Match match=playingMatch.getMatch();
+        if(teamNumber==1)
+        {
+            match.setGoalsTeam1(match.getGoalsTeam1()-1);
+        }else match.setGoalsTeam2(match.getGoalsTeam2()-1);
+
+
+        this.matchService.save(match);
+    }
+
+    @Override
+    public void addFaulForTeam(Long playingMatchId, int teamNumber) {
+        PlayingMatch playingMatch=this.playingMatchRepository.findById(playingMatchId).orElseThrow(PlayingMatchNotFoundException::new);
+        Match match=playingMatch.getMatch();
+        if(teamNumber==1)
+        {
+            match.setFaulsTeam1(match.getFaulsTeam1()+1);
+        }else match.setFaulsTeam2(match.getFaulsTeam2()+1);
+
+        this.matchService.save(match);
+
+    }
+
+    @Override
+    public void subtractFaulForTeam(Long playingMatchId, int teamNumber) {
+        PlayingMatch playingMatch=this.playingMatchRepository.findById(playingMatchId).orElseThrow(PlayingMatchNotFoundException::new);
+        Match match=playingMatch.getMatch();
+        if (teamNumber==1)
+        {
+            match.setFaulsTeam1(match.getFaulsTeam1()-1);
+        }else match.setFaulsTeam2(match.getFaulsTeam2()-1);
+
+        this.matchService.save(match);
+    }
+
+    @Override
+    public void resetFaulsForTeam(Long playingMatchId, int teamNumber) {
+        PlayingMatch playingMatch=this.playingMatchRepository.findById(playingMatchId).orElseThrow(PlayingMatchNotFoundException::new);
+        Match match=playingMatch.getMatch();
+        if(teamNumber==1){
+            match.setFaulsTeam1(0);
+        }else match.setFaulsTeam2(0);
+
+        this.matchService.save(match);
+    }
 }

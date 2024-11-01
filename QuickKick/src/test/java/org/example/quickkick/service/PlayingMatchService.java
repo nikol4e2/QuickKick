@@ -26,19 +26,18 @@ public interface PlayingMatchService {
     int getRemainingTime(Long playingMatchId);
 
 
-    /* TODO Implement this functions for adding goals and fauls for teams
-    void addGoalForTeam1(Long id)
-    void addGoalForTeam2(Long id)
-    void subtractGoalForTeam1(Long id)
-    void subtractGoalForTeam2(Long id)
-    void addFaulForTeam1(Long id)
-    void addFaulForTeam2(Long id)
-    void subtractFaulForTeam1(Long id)
-    void subtractFaulForTeam2(Long id)
-    void resetFaulsForTeam1(Long id)
-    void resetFaulsForTeam2(Long id)
 
 
 
-     */
+
+
+    void addGoalForTeam(Long playingMatchId,int teamNumber);
+    void subtractGoalForTeam(Long playingMatchId,int teamNumber);
+    void addFaulForTeam(Long playingMatchId,int teamNumber;
+    void subtractFaulForTeam(Long playingMatchId,int teamNumber);
+    void resetFaulsForTeam(Long playingMatchId,int teamNumber);
+
+
+
+
 }

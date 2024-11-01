@@ -13,4 +13,5 @@ public interface MatchService {
     List<Match> findAllMatchesByDate(Date date);
     void finishMatch(Long id);
     List<Match> findAllMatchesByStatus(MatchStatus status);
+    Match save(Match match);
 }

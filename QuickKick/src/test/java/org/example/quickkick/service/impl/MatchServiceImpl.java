@@ -58,4 +58,9 @@ public class MatchServiceImpl implements MatchService {
     public List<Match> findAllMatchesByStatus(MatchStatus status) {
         return matchRepository.findAllByStatus(status);
     }
+
+    @Override
+    public Match save(Match match) {
+        return this.matchRepository.save(match);
+    }
 }
